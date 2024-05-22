@@ -1,4 +1,4 @@
-package com.example.usermanagement;
+package com.avania.io.usermanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

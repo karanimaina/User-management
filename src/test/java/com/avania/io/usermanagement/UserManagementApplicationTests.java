@@ -1,4 +1,4 @@
-package com.example.usermanagement;
+package com.avania.io.usermanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
