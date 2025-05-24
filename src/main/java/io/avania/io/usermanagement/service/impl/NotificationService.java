@@ -1,7 +1,7 @@
 package io.avania.io.usermanagement.service.impl;
 
-import com.eclectics.io.usermodule.wrapper.WorkflowPublisherWrapper;
 import com.google.gson.Gson;
+import io.avania.io.usermanagement.wrapper.WorkflowPublisherWrapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
