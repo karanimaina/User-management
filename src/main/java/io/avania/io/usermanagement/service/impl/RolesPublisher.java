@@ -1,13 +1,12 @@
 package io.avania.io.usermanagement.service.impl;
 
-import com.eclectics.io.usermodule.model.Profile;
-import com.eclectics.io.usermodule.model.SystemUser;
-import com.eclectics.io.usermodule.repository.ProfileRepository;
-import com.eclectics.io.usermodule.repository.ProfileRoleRepository;
-import com.eclectics.io.usermodule.repository.SystemUserRepository;
-import com.eclectics.io.usermodule.serviceConfig.RedisStoreRepository;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import io.avania.io.usermanagement.model.Profile;
+import io.avania.io.usermanagement.model.SystemUser;
+import io.avania.io.usermanagement.repository.*;
+import io.avania.io.usermanagement.serviceConfig.RedisStoreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
