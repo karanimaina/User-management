@@ -1,7 +1,8 @@
 package io.avania.io.usermanagement.controller;
 
-import com.eclectics.io.usermodule.service.IUserInterface;
-import com.eclectics.io.usermodule.wrapper.*;
+
+import io.avania.io.usermanagement.service.IUserInterface;
+import io.avania.io.usermanagement.wrapper.*;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
