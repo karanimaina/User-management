@@ -1,24 +1,19 @@
 package io.avania.io.usermanagement.workflowService.services.impl;
 
-import com.eclectics.io.usermodule.service.impl.NotificationService;
-import com.eclectics.io.usermodule.workflowService.Exception.InvalidOperation;
-import com.eclectics.io.usermodule.workflowService.Exception.ItemNotFoundException;
-import com.eclectics.io.usermodule.workflowService.constants.ApprovalAction;
-import com.eclectics.io.usermodule.workflowService.constants.WorkFlowResponseStatus;
-import com.eclectics.io.usermodule.workflowService.dto.ApproveStagedActionWrapper;
-import com.eclectics.io.usermodule.workflowService.dto.StagingActionDto;
-import com.eclectics.io.usermodule.workflowService.model.StagingAction;
-import com.eclectics.io.usermodule.workflowService.model.StagingActionApproval;
-import com.eclectics.io.usermodule.workflowService.model.WorkFlow;
-import com.eclectics.io.usermodule.workflowService.model.WorkFlowStep;
-import com.eclectics.io.usermodule.workflowService.repository.StagingActionApprovalRepository;
-import com.eclectics.io.usermodule.workflowService.repository.StagingActionRepository;
-import com.eclectics.io.usermodule.workflowService.repository.WorkFlowRepository;
-import com.eclectics.io.usermodule.workflowService.repository.WorkFlowStepRepository;
-import com.eclectics.io.usermodule.workflowService.services.StagingActionService;
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import io.avania.io.usermanagement.service.impl.NotificationService;
+import io.avania.io.usermanagement.workflowService.Exception.InvalidOperation;
+import io.avania.io.usermanagement.workflowService.Exception.ItemNotFoundException;
+import io.avania.io.usermanagement.workflowService.constants.ApprovalAction;
+import io.avania.io.usermanagement.workflowService.constants.WorkFlowResponseStatus;
+import io.avania.io.usermanagement.workflowService.dto.ApproveStagedActionWrapper;
+import io.avania.io.usermanagement.workflowService.dto.StagingActionDto;
+import io.avania.io.usermanagement.workflowService.model.WorkFlow;
+import io.avania.io.usermanagement.workflowService.model.*;
+import io.avania.io.usermanagement.workflowService.repository.*;
+import io.avania.io.usermanagement.workflowService.services.StagingActionService;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -115,7 +110,7 @@ public class StagingActionServiceImpl implements StagingActionService {
     public Mono<UniversalResponse> approveStagedActionByWorkFlowIdAndStagedActionId(ApproveStagedActionWrapper approveStagedActionWrapper) {
         return Mono.fromCallable (() -> {
                     StagingAction stagingAction = stagingActionRepository.findByIdAndFinalizedFalseAndProcessedFalseAndApprovedFalse (approveStagedActionWrapper.getStageId ())
-                            .orElseThrow (() -> new ItemNotFoundException ("Staged Action Item not found"));
+                            .orElseThrow (() -> new ItemNotFoundException("Staged Action Item not found"));
 
                     WorkFlow workFlow = stagingAction.getWorkflow ();
                     Type listType = new TypeToken<ArrayList<Long>> () {}.getType ();
@@ -126,7 +121,7 @@ public class StagingActionServiceImpl implements StagingActionService {
                             .orElseThrow (() -> new ItemNotFoundException ("Workflow step not found"));
 
                     if (workFlowStep.getRequiredRoleId () != approveStagedActionWrapper.getApproverId ()) {
-                        throw new InvalidOperation ("You dont have adequate permissions to perform approve this action");
+                        throw new InvalidOperation("You dont have adequate permissions to perform approve this action");
                     }
                     //check if staged action is the last in the index
                     long stepId = stagingActionList.get (currIndex);
