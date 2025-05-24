@@ -1,8 +1,8 @@
 package io.avania.io.usermanagement.security;
 
-import com.eclectics.io.usermodule.exceptions.AuthException;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
 import com.nimbusds.jwt.SignedJWT;
+import io.avania.io.usermanagement.exceptions.AuthException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Mono;
@@ -24,7 +24,7 @@ public class JwtUtil {
             RSASSAVerifier rsassaVerifier = new RSASSAVerifier (keysConfig.publicKey ());
             SignedJWT signedJWT = SignedJWT.parse (bearerToken);
             if (!signedJWT.verify (rsassaVerifier)) {
-                throw new AuthException ("Failed to verify token!");
+                throw new AuthException("Failed to verify token!");
             }
             return true;
         });
