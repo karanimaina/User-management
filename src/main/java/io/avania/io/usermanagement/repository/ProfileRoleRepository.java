@@ -1,6 +1,7 @@
 package io.avania.io.usermanagement.repository;
 
-import com.eclectics.io.usermodule.model.ProfileRoles;
+
+import io.avania.io.usermanagement.model.ProfileRoles;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
