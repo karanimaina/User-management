@@ -1,8 +1,9 @@
 package io.avania.io.usermanagement.security;
 
-import com.eclectics.io.usermodule.exceptions.AuthException;
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
+
 import com.google.gson.Gson;
+import io.avania.io.usermanagement.exceptions.AuthException;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +56,7 @@ public class ReactiveBearerSecurityFilter implements WebFilter {
         return Mono.justOrEmpty (exchange)
                 .flatMap (ReactiveBearerSecurityFilter::extract)
                 .flatMap (isolateBearerValue)
-                .switchIfEmpty (Mono.defer (() -> Mono.error (new AuthException ("Invalid session"))))
+                .switchIfEmpty (Mono.defer (() -> Mono.error (new AuthException("Invalid session"))))
                 .flatMap (bearerToken -> jwtUtil.validateToken (bearerToken)
                                 .flatMap (res->{
                                     if(Boolean.TRUE.equals(res)){
