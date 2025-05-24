@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.workflowService.model;
 
-import com.eclectics.io.usermodule.model.BaseEntity;
+import io.avania.io.usermanagement.model.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.Entity;
