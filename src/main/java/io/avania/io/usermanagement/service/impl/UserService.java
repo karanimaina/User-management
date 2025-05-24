@@ -1,17 +1,17 @@
 package io.avania.io.usermanagement.service.impl;
 
-import com.eclectics.io.usermodule.constants.MessageType;
-import com.eclectics.io.usermodule.constants.SystemProcess;
-import com.eclectics.io.usermodule.constants.SystemRoles;
-import com.eclectics.io.usermodule.model.*;
-import com.eclectics.io.usermodule.repository.*;
-import com.eclectics.io.usermodule.service.IUserInterface;
-import com.eclectics.io.usermodule.serviceConfig.RedisStoreRepository;
-import com.eclectics.io.usermodule.util.UtilFunctions;
-import com.eclectics.io.usermodule.workflowService.WorkFlowFilter;
-import com.eclectics.io.usermodule.wrapper.*;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import io.avania.io.usermanagement.constant.SystemRoles;
+import io.avania.io.usermanagement.constants.MessageType;
+import io.avania.io.usermanagement.constants.SystemProcess;
+import io.avania.io.usermanagement.model.*;
+import io.avania.io.usermanagement.repository.*;
+import io.avania.io.usermanagement.service.IUserInterface;
+import io.avania.io.usermanagement.serviceConfig.RedisStoreRepository;
+import io.avania.io.usermanagement.util.UtilFunctions;
+import io.avania.io.usermanagement.workflowService.WorkFlowFilter;
+import io.avania.io.usermanagement.wrapper.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
