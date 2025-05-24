@@ -1,11 +1,13 @@
 package io.avania.io.usermanagement.bootstrap;
 
-import com.eclectics.io.usermodule.constants.MessageType;
-import com.eclectics.io.usermodule.constants.SystemRoles;
-import com.eclectics.io.usermodule.model.*;
-import com.eclectics.io.usermodule.repository.*;
-import com.eclectics.io.usermodule.service.impl.NotificationService;
+
 import com.google.gson.Gson;
+import io.avania.io.usermanagement.constants.MessageType;
+import io.avania.io.usermanagement.constants.SystemRoles;
+import io.avania.io.usermanagement.model.*;
+import io.avania.io.usermanagement.repository.*;
+import io.avania.io.usermanagement.service.impl.NotificationService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +16,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -29,7 +30,6 @@ import java.util.function.BiFunction;
 public class InitOperations {
     @Value("${default.admin.email}")
     private String adminEmail;
-
     private final MessageTemplateRepository messageTemplateRepository;
     private final Gson gson;
     private final SystemUserRepository systemUserRepository;
@@ -57,8 +57,8 @@ public class InitOperations {
     private void saveDefaultMessageTemplates(){
         if(messageTemplateRepository.findByMessageTypeAndDefaultTemplateTrueAndSoftDeleteFalse (MessageType.WELCOME_ADMIN_MESSAGE)==null) {
             MessageTemplate welcomeMessageTemplate = MessageTemplate.builder ()
-                    .message (" Dear @name, you have been added as an ECLECTICS ESB Administrator" +
-                            ".Use your email and password @password to login. %n Kind Regards %n ATLASMARA ESB TEAM")
+                    .message (" Dear @name, you have been added as an  Administrator" +
+                            ".Use your email and password @password to login. %n Kind Regards %n AVANIA TEAM")
                     .baseParams (gson.toJson (List.of ("@name", "@password")))
                     .active (true)
                     .defaultTemplate (true)
@@ -114,7 +114,7 @@ public class InitOperations {
         }
     }
 
-    BiFunction<Profile, Role, com.eclectics.io.usermodule.model.ProfileRoles> roleProfileMapper() {
+    BiFunction<Profile, Role, ProfileRoles> roleProfileMapper() {
         return (profile, role) -> {
           ProfileRoles profileRoles = ProfileRoles.builder ()
                     .role (role)
@@ -133,14 +133,14 @@ public class InitOperations {
                 SystemUser systemUser = SystemUser.builder ()
                         .email (adminEmail)
                         .profile (profile)
-                        .firstName ("ESB-SYSTEM-ADMIN")
-                        .lastName ("ESB-SYSTEM-ADMIN")
+                        .firstName ("SYSTEM-ADMIN")
+                        .lastName ("SYSTEM-ADMIN")
                         .password (passwordEncoder.encode (password))
                         .blocked (false)
                         .firstTimeLogin (true)
                         .loginAttempts (0)
                         .build ();
-                String message = String.format ("Dear ESB SUPER ADMINISTRATOR , Use your email and first time pin  %s to login." +
+                String message = String.format ("Dear User, Use your email and first time pin  %s to login." +
                         " %n Kind Regards %n ECLECTICS ESB TEAM", password);
                 systemUserRepository.save (systemUser);
                 notificationService.sendEmailNotificationMessage (message, adminEmail, "SUPER ADMIN ACCOUNT CREDENTIALS");
