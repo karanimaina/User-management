@@ -1,15 +1,13 @@
 package io.avania.io.usermanagement.controller;
-
-
-import com.eclectics.io.usermodule.service.impl.UserService;
-import com.eclectics.io.usermodule.workflowService.dto.ApproveStagedActionWrapper;
-import com.eclectics.io.usermodule.workflowService.dto.StagingActionDto;
-import com.eclectics.io.usermodule.workflowService.dto.WorkFlowDto;
-import com.eclectics.io.usermodule.workflowService.dto.WorkFlowStepDto;
-import com.eclectics.io.usermodule.workflowService.services.StagingActionService;
-import com.eclectics.io.usermodule.workflowService.services.WorkFlowService;
-import com.eclectics.io.usermodule.wrapper.CommonWrapper;
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
+import io.avania.io.usermanagement.service.impl.UserService;
+import io.avania.io.usermanagement.workflowService.dto.ApproveStagedActionWrapper;
+import io.avania.io.usermanagement.workflowService.dto.StagingActionDto;
+import io.avania.io.usermanagement.workflowService.dto.WorkFlowDto;
+import io.avania.io.usermanagement.workflowService.dto.WorkFlowStepDto;
+import io.avania.io.usermanagement.workflowService.services.StagingActionService;
+import io.avania.io.usermanagement.workflowService.services.WorkFlowService;
+import io.avania.io.usermanagement.wrapper.CommonWrapper;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
