@@ -1,7 +1,8 @@
 package io.avania.io.usermanagement.repository;
 
 
-import com.eclectics.io.usermodule.model.Profile;
+
+import io.avania.io.usermanagement.model.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
