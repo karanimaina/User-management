@@ -1,8 +1,9 @@
 package io.avania.io.usermanagement.controller;
 
-import com.eclectics.io.usermodule.model.MessageTemplate;
-import com.eclectics.io.usermodule.service.IUserInterface;
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
+
+import io.avania.io.usermanagement.model.MessageTemplate;
+import io.avania.io.usermanagement.service.IUserInterface;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -41,7 +42,7 @@ public class MessageTemplateController {
 
     @PostMapping("/add")
     @PreAuthorize("hasAnyRole('ESB-ADMIN') AND hasAnyAuthority('ADD_MESSAGE_TEMPLATE')")
-    public Mono<ResponseEntity<UniversalResponse>> addTemplate(@RequestBody  MessageTemplate messageTemplate){
+    public Mono<ResponseEntity<UniversalResponse>> addTemplate(@RequestBody MessageTemplate messageTemplate){
         return userInterface.addMessageTemplate (messageTemplate)
                 .map (ResponseEntity::ok)
                 .publishOn (Schedulers.boundedElastic ());
