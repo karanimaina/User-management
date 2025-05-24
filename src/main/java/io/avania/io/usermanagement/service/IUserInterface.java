@@ -1,10 +1,11 @@
 package io.avania.io.usermanagement.service;
 
-import com.eclectics.io.usermodule.constants.MessageType;
-import com.eclectics.io.usermodule.model.MessageTemplate;
-import com.eclectics.io.usermodule.model.Profile;
-import com.eclectics.io.usermodule.model.SystemUser;
-import com.eclectics.io.usermodule.wrapper.*;
+
+import io.avania.io.usermanagement.constants.MessageType;
+import io.avania.io.usermanagement.model.MessageTemplate;
+import io.avania.io.usermanagement.model.Profile;
+import io.avania.io.usermanagement.model.SystemUser;
+import io.avania.io.usermanagement.wrapper.*;
 import org.springframework.security.core.Authentication;
 import reactor.core.publisher.Mono;
 
@@ -16,7 +17,7 @@ public interface IUserInterface {
     Mono<UniversalResponse> createSystemUser(CreateUserWrapper createUserWrapper);
     Mono<UniversalResponse> updateUser(UpdateUserWrapper updateUserWrapper);
     Mono<UniversalResponse> resetUser(ResetUserPassword resetUserPassword);
-    Mono<UniversalResponse> updateUserPassword(UpdatePasswordWrapper passwordWrapper,Authentication authentication);
+    Mono<UniversalResponse> updateUserPassword(UpdatePasswordWrapper passwordWrapper, Authentication authentication);
     Mono<UniversalResponse> getUserById(CommonWrapper commonWrapper);
     Mono<UniversalResponse> getAllUsers(CommonWrapper commonWrapper);
     Mono<UniversalResponse> findWorkflowUsers(CommonWrapper commonWrapper);
