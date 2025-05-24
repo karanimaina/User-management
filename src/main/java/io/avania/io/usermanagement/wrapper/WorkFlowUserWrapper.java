@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.wrapper;
 
-import com.eclectics.io.usermodule.model.SystemUser;
+import io.avania.io.usermanagement.model.SystemUser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
