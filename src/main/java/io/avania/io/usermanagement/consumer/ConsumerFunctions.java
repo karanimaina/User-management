@@ -1,11 +1,11 @@
 package io.avania.io.usermanagement.consumer;
 
-import com.eclectics.io.usermodule.model.SystemUser;
-import com.eclectics.io.usermodule.repository.SystemUserRepository;
-import com.eclectics.io.usermodule.service.impl.NotificationService;
-import com.eclectics.io.usermodule.util.UtilFunctions;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import io.avania.io.usermanagement.model.SystemUser;
+import io.avania.io.usermanagement.repository.SystemUserRepository;
+import io.avania.io.usermanagement.service.impl.NotificationService;
+import io.avania.io.usermanagement.util.UtilFunctions;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +25,6 @@ public class ConsumerFunctions {
 @SuppressWarnings({"UnstableApiUsage"})
     public Consumer<String> userCreation() {
         return user -> {
-
             JsonObject userMap = gson.fromJson(user, JsonObject.class);
             long userId = userMap.get("itemId").getAsLong();
             String decision = userMap.get("decision").getAsString();
