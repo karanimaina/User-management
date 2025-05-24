@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.exceptions;
 
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
