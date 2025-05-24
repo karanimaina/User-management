@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.workflowService.repository;
 
-import com.eclectics.io.usermodule.workflowService.model.StagingAction;
+import io.avania.io.usermanagement.workflowService.model.StagingAction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
