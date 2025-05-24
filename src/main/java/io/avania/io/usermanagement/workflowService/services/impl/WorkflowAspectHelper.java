@@ -1,13 +1,14 @@
 package io.avania.io.usermanagement.workflowService.services.impl;
 
-import com.eclectics.io.usermodule.service.impl.UserService;
-import com.eclectics.io.usermodule.workflowService.WorkFlowFilter;
-import com.eclectics.io.usermodule.workflowService.constants.WorkFlowResponseStatus;
-import com.eclectics.io.usermodule.workflowService.dto.StagingActionDto;
-import com.eclectics.io.usermodule.workflowService.services.StagingActionService;
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
-import com.eclectics.io.usermodule.wrapper.WorkFlowUserWrapper;
+
 import com.google.gson.Gson;
+import io.avania.io.usermanagement.service.impl.UserService;
+import io.avania.io.usermanagement.workflowService.WorkFlowFilter;
+import io.avania.io.usermanagement.workflowService.constants.WorkFlowResponseStatus;
+import io.avania.io.usermanagement.workflowService.dto.StagingActionDto;
+import io.avania.io.usermanagement.workflowService.services.StagingActionService;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
+import io.avania.io.usermanagement.wrapper.WorkFlowUserWrapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -32,7 +33,7 @@ public class WorkflowAspectHelper {
     private final StagingActionService stagingActionService;
     private final Gson gson;
 
-    @Around("@annotation(com.eclectics.io.usermodule.workflowService.WorkFlowFilter)")
+    @Around("@annotation(io.avania.io.usermanagement.workflowService.WorkFlowFilter)")
     public Mono<UniversalResponse> checkAndStageWorkFlow(ProceedingJoinPoint point) {
         MethodSignature method = (MethodSignature) point.getSignature ();
         Object[] obj = point.getArgs ();
@@ -44,7 +45,7 @@ public class WorkflowAspectHelper {
                 .flatMap (auth -> userService.getSystemUserByUsername (auth.getName ()))
                 .flatMap (user -> {
                     StagingActionDto stagingActionDto = StagingActionDto.builder ()
-                            .stagingUserDetails (gson.toJson (new WorkFlowUserWrapper (user)))
+                            .stagingUserDetails (gson.toJson (new WorkFlowUserWrapper(user)))
                             .stagingCurrentData (gson.toJson (request))
                             .stagingPreviousData (null)
                             .process (process)
