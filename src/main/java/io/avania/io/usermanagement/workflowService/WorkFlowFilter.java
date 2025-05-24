@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.workflowService;
 
-import com.eclectics.io.usermodule.constants.SystemProcess;
+import io.avania.io.usermanagement.constants.SystemProcess;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
