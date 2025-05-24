@@ -1,9 +1,10 @@
 package io.avania.io.usermanagement.controller;
 
-import com.eclectics.io.usermodule.service.IUserInterface;
-import com.eclectics.io.usermodule.wrapper.CommonRoleWrapper;
-import com.eclectics.io.usermodule.wrapper.CommonWrapper;
-import com.eclectics.io.usermodule.wrapper.UniversalResponse;
+
+import io.avania.io.usermanagement.service.IUserInterface;
+import io.avania.io.usermanagement.wrapper.CommonRoleWrapper;
+import io.avania.io.usermanagement.wrapper.CommonWrapper;
+import io.avania.io.usermanagement.wrapper.UniversalResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

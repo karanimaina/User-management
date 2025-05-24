@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.repository;
 
-import com.eclectics.io.usermodule.model.Role;
+import io.avania.io.usermanagement.model.Role;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
