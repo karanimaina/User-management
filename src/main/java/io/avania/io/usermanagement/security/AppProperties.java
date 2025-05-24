@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Getter
 public class AppProperties {
-    @Value("${key.name}")
+    @Value("${app.keystore.name}")
     private String name;
-    @Value("${key.password}")
+    @Value("${app.keystore.password}")
     private String password;
-    @Value("${key.alias}")
+    @Value("${app.keystore.alias}")
     private String alias;
 
 }
