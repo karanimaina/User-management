@@ -1,6 +1,7 @@
 package io.avania.io.usermanagement.serviceConfig;
 
 import com.google.gson.Gson;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.ReactiveHashOperations;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-import javax.annotation.PostConstruct;
 import java.time.Duration;
 import java.util.List;
 
