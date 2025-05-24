@@ -1,7 +1,9 @@
 package io.avania.io.usermanagement.repository;
 
-import com.eclectics.io.usermodule.constants.MessageType;
-import com.eclectics.io.usermodule.model.MessageTemplate;
+
+
+import io.avania.io.usermanagement.constants.MessageType;
+import io.avania.io.usermanagement.model.MessageTemplate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
