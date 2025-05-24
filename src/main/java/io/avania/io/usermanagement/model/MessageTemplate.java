@@ -1,7 +1,7 @@
 package io.avania.io.usermanagement.model;
 
-import com.eclectics.io.usermodule.constants.MessageType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.avania.io.usermanagement.constants.MessageType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
