@@ -1,6 +1,6 @@
 package io.avania.io.usermanagement.workflowService.repository;
 
-import com.eclectics.io.usermodule.workflowService.model.WorkFlowStep;
+import io.avania.io.usermanagement.workflowService.model.WorkFlowStep;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
