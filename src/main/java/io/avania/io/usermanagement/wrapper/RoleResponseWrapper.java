@@ -1,6 +1,7 @@
 package io.avania.io.usermanagement.wrapper;
 
-import com.eclectics.io.usermodule.model.Role;
+
+import io.avania.io.usermanagement.model.Role;
 
 import java.util.List;
 
