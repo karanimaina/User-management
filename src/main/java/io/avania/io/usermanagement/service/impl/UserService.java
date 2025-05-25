@@ -87,7 +87,7 @@ public class UserService implements IUserInterface {
                    .process(SystemRoles.CREATE_USER.getProcessName())
                    .stagingDetails(users)
                    .onCompletionTopic(SystemRoles.CREATE_USER.getOnCompletionTopic())
-                     .nextStepTopic(SystemRoles.CREATE_USER.getNextStepTopic())
+                   .nextStepTopic(SystemRoles.CREATE_USER.getNextStepTopic())
                     .build();
            String bodyToWorkFlowEngine = gson.toJson(workflowCreationWrapper);
            notificationService.esbCreateItemPublisher(bodyToWorkFlowEngine);
